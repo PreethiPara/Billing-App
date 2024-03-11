@@ -1,0 +1,33 @@
+
+.navbar-container{
+    flex-grow: 1;
+    .navbar-main{
+        // background-color: #fbc3bc;
+        height: 7rem;
+        justify-content: space-between;
+        padding: 1.5rem;
+        .left-navbar-main{
+            display: flex;
+            align-items: center;
+            .store-logo{
+                font-size: 4rem;
+            }
+            min-width: 30%;
+        }
+        .greeting-header{
+            justify-content: space-around;
+        }
+        .right-navbar-main{
+            display: flex;
+            min-width: 30%;
+            justify-content: space-around;
+            .add-account-icon{
+                font-size: 3rem;
+            }
+            .show-account-icon{
+                font-size: 3rem;
+            }
+        }
+    }
+    
+}
