@@ -8,11 +8,14 @@ export interface DropDownProps {
 }
 export interface basicModalProps {
     element:ReactElement
+    header:string
+    onClose: ()=>void
 }
 export interface customFormProps {
     header:string;
     listOfEntries:string[];
     upperElement:ReactElement;
     lowerElement:ReactElement;
+    buttonContent:string;
 }
 export const productFormList=["Name","Price"];

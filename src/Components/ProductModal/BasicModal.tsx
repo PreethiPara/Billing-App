@@ -26,7 +26,7 @@ export default function BasicModal(props:basicModalProps) {
 
   return (
     <div>
-      <Button onClick={handleOpen} style={{padding:'15px',backgroundColor:theme.palette.primary.light, fontSize:"1rem"}}>Add Product</Button>
+      <Button onClick={handleOpen} style={{padding:'15px',backgroundColor:theme.palette.primary.light, fontSize:"1rem"}}>{props.header}</Button>
       <Modal
         keepMounted
         open={open}

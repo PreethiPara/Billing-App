@@ -16,6 +16,28 @@
         }
     }
 }
+.after-upload{
+    display: flex;
+    flex-direction: column;
+    
+    .image-modal{
+        width:20px;
+        height:50%;
+        margin-bottom: 10px;
+    }
+    .reupload-picture-icon-button{
+        width: fit-content;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 20px;
+        .add-picture-icon{
+            margin: 0.6rem;
+            font-size: 2rem;
+        }
+        
+    }
+}
+
 
 .add-picture-icon-button{
     width: fit-content;
@@ -24,4 +46,8 @@
         margin: 0.6rem;
         font-size: 3.5rem;
     }
+    
+}
+.disabled-input{
+    display: none;
 }

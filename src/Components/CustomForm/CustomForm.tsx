@@ -11,7 +11,7 @@ function CustomForm(props:customFormProps){
                 <Typography variant="h3" className="form-header">{props.header}</Typography>
                 {props.upperElement}
                 {
-                    props.listOfEntries.map((item)=>(
+                    (props.listOfEntries|| []).map((item)=>(
                         <Stack className="form-field-container">
                             <TextField
                                 sx={{margin:"15px 0px 15px 0px", width:"100%"}}
@@ -26,7 +26,11 @@ function CustomForm(props:customFormProps){
                 {
                     props.lowerElement
                 }
-                <Button variant="contained" type="submit" className="form-submit-button">Submit</Button>
+                {
+                    props.buttonContent==="Submit" && (
+                        <Button variant="contained" type="submit" className="form-submit-button">{props.buttonContent}</Button>
+                    )
+                }
             </FormControl>
         </Box>
 
