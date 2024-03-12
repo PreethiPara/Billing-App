@@ -22,8 +22,11 @@ const style = {
 export default function BasicModal(props:basicModalProps) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+  const handleClose = ()=>{
+    setOpen(false);
+    
+  }
+  
   return (
     <div>
       <Button onClick={handleOpen} style={{padding:'15px',backgroundColor:theme.palette.primary.light, fontSize:"1rem"}}>{props.header}</Button>
@@ -37,7 +40,13 @@ export default function BasicModal(props:basicModalProps) {
       >
         <Box sx={style}>
           {props.element}
+          {
+            
+            (props.buttonContent==="Submit")?(<Button type="submit" onClick={handleClose} variant="contained">{props.buttonContent}</Button>):(<Button onClick={handleClose} variant="contained">{props.buttonContent}</Button>)
+            
+          }
         </Box>
+        
       </Modal>
     </div>
   );

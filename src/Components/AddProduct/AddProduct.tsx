@@ -16,7 +16,7 @@ import './AddProduct.scss'
 
 function AddPicture() {
     const customInput=useRef<null | HTMLInputElement>(null);
-    const [viewImage,setViewImage]=React.useState(false);
+    
     const [file,setFile]=React.useState<File>();
     function getFile(event:React.BaseSyntheticEvent){
         console.log(event.target.files[0])
@@ -27,14 +27,22 @@ function AddPicture() {
             customInput.current.click()
         }
     }
-    function handleViewImage(){
-        setViewImage((prev)=>!prev)
-    }
+    
     return(<>
        {
         file?(
             <div className='after-upload'>
-                <BasicModal onClose={handleViewImage} element={<CustomForm buttonContent={"Close"} header="View Image" listOfEntries={[]} upperElement={<img style={{width:"50%"}} src={URL.createObjectURL(file)}/>} lowerElement={<Button onClick={hanleViewImage} variant="contained">Close</Button>}/>} header="View Image"/>
+                <BasicModal  
+                    buttonContent={"Close"} 
+                    element={
+                        <CustomForm  
+                            header="View Image" 
+                            listOfEntries={[]} 
+                            upperElement={<img style={{width:"50%"}} src={URL.createObjectURL(file)}/>} 
+                            lowerElement={<></>}/>
+                    }
+                    header="View Image"
+                />
                 <IconButton  className='reupload-picture-icon-button' style={{backgroundColor:theme.palette.secondary.light}} onClick={handleClick}>
                 {
                     (<AddAPhoto className='add-picture-icon'/>)
@@ -43,11 +51,11 @@ function AddPicture() {
             </div>
         ):
         (
-        <IconButton  className='add-picture-icon-button' style={{backgroundColor:theme.palette.secondary.light}} onClick={handleClick}>
-        {
-            (<AddAPhoto className='add-picture-icon'/>)
-        }
-        </IconButton>
+            <IconButton  className='add-picture-icon-button' style={{backgroundColor:theme.palette.secondary.light}} onClick={handleClick}>
+            {
+                (<AddAPhoto className='add-picture-icon'/>)
+            }
+            </IconButton>
         )
        }
         
@@ -57,19 +65,27 @@ function AddPicture() {
     )
 }
 function AddProduct(){
+   
     return(<>
+        
         <Box className="add-search-sort">
-            <BasicModal element={<CustomForm buttonContent={"Submit"} header="Add Product" listOfEntries={productFormList} upperElement={<AddPicture/>} lowerElement={<></>} header="Add product" />
-            { <FormControl className='search-bar'>
-                <FormLabel className="search-product-label">Search Product</FormLabel>
-                <Autocomplete
-                placeholder="Type to Search"
-                options={topFilms}
-                className='auto-complete'
+                <BasicModal
+                    buttonContent={"Submit"}
+                    element={<CustomForm  header="Add Product" listOfEntries={productFormList} upperElement={<AddPicture />} lowerElement={<></>} />}
+                    header="Add product"
                 />
-            </FormControl> }
-            <DropDown listOfItems={sortList} Label='sort'></DropDown>
-        </Box>
+                {/* <FormControl className='search-bar'>
+                    <FormLabel className="search-product-label">Search Product</FormLabel>
+                    <Autocomplete
+                    placeholder="Type to Search"
+                    options={topFilms}
+                    className='auto-complete'
+                    />
+                </FormControl> */}
+                {/* This is where you had JSX structure error */}
+                <DropDown listOfItems={sortList} Label='sort' />
+            </Box>
+        
         </>
     )
 }

@@ -26,11 +26,7 @@ function CustomForm(props:customFormProps){
                 {
                     props.lowerElement
                 }
-                {
-                    props.buttonContent==="Submit" && (
-                        <Button variant="contained" type="submit" className="form-submit-button">{props.buttonContent}</Button>
-                    )
-                }
+                
             </FormControl>
         </Box>
 
