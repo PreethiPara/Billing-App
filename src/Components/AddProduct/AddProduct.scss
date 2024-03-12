@@ -1,0 +1,27 @@
+.add-search-sort{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    margin-top:10rem;
+
+    .search-bar{
+        display:flex;
+        align-items: center;
+        .auto-complete { 
+            width: 300px; 
+            height:50px;
+        }
+        .search-product-label{
+            font-size: 20px;
+        }
+    }
+}
+
+.add-picture-icon-button{
+    width: fit-content;
+    justify-content: flex-start;
+    .add-picture-icon{
+        margin: 0.6rem;
+        font-size: 3.5rem;
+    }
+}
