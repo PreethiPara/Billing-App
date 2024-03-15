@@ -6,16 +6,26 @@ export interface DropDownProps {
     listOfItems: string[];
     Label: string;
 }
-export interface basicModalProps {
-    element:ReactElement
-    header:string
-    buttonContent:string;
+export interface addProductModalProps {
+    listOfEntries: string[];
+    header: string
+    buttonContent: string;
 }
 export interface customFormProps {
-    header:string;
-    listOfEntries:string[];
-    upperElement:ReactElement;
-    lowerElement:ReactElement;
-    
+    header: string;
+    listOfEntries: string[];
+    buttonContent: string;
 }
-export const productFormList=["Name","Price"];
+export interface viewImageProps {
+    header: string;
+    image: ReactElement;
+    buttonContent: string;
+}
+export interface addPictureProps {
+    removeFile: Boolean;
+    fileRemoved: Function;
+}
+export interface showProductProps {
+    productAdded: string[];
+}
+export const productFormList = ["Name", "Price"];

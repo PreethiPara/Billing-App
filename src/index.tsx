@@ -6,13 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import { CssBaseline, ThemeProvider, useTheme } from '@mui/material';
 import { theme } from './Constants/theme';
 
+localStorage.setItem("Name", "");
+localStorage.setItem("Price", "");
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <CssBaseline/>
+      <CssBaseline />
       <App />
     </ThemeProvider>
   </React.StrictMode>
