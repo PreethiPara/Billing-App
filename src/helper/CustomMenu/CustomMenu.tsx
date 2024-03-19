@@ -1,21 +1,21 @@
 import { Menu, MenuItem } from "@mui/material";
-import {customMenuProps} from "../../constants/helper/customMenuProps";
+import { customMenuProps } from "../../constants/helper/customMenuProps";
 
-function CustomMenu(props:customMenuProps) {
-    return(
+function CustomMenu(props: customMenuProps) {
+    return (
         <Menu
             id="basic-menu"
             anchorEl={props.anchorEl}
             open={props.open}
-            onClose={()=>{props.handleClose()}}
+            onClose={() => { props.handleClose() }}
             MenuListProps={{
-            'aria-labelledby': 'basic-button',
+                'aria-labelledby': 'basic-button',
             }}
         >
             {
-                props.listOfMenuItems.map((menuItems)=>{
-                    return(
-                        <MenuItem onClick={(event)=>{props.handleClose()}}>{menuItems}</MenuItem>
+                props.listOfMenuItems.map((menuItems) => {
+                    return (
+                        <MenuItem onClick={(event) => { props.handleClose() }} children={menuItems}></MenuItem>
                     )
                 })
             }
