@@ -38,7 +38,7 @@ export default function ProductModalFromButton(props:modalFromButtonProps) {
   const [name, setName] = React.useState("");
   const [category, setCategory] = React.useState<String|null>(null);
   const [quantity, setQuantity] = React.useState("");
-
+  const [quanityError,setQuantityError]=React.useState(false); 
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -55,11 +55,17 @@ export default function ProductModalFromButton(props:modalFromButtonProps) {
     function handleCheckBoxClick(){
         setClicked((prev)=>{
             console.log(!prev);
+            setQuantity("0");
+            setQuantityError(false);
             return !prev;
         });
     }
     function handleSubmit(){
-      const formData={name,price,category};
+      if(!name || !price || (!clicked && !quantity)){
+        alert("Please fill in all the fields!");
+        return;
+      }
+      const formData={name,price};
       
       if(open){
         const updatedFormData={
@@ -81,6 +87,13 @@ export default function ProductModalFromButton(props:modalFromButtonProps) {
         setPriceError(false);
       }
       else setPriceError(true);
+    }
+    function handleQuantityValidation(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>){
+      setQuantity(event.target.value);
+      if(event.target.validity.valid){
+        setQuantityError(false);
+      }
+      else setQuantityError(true);
     }
   return (
     <div>
@@ -135,7 +148,7 @@ export default function ProductModalFromButton(props:modalFromButtonProps) {
                 InputLabelProps={{style: {fontSize: 20}}}
               />
             <Box className="flex">
-                <Autocomplete
+                {/* <Autocomplete
                   className='w-1/2'
                     id="country-select-demo"
                     sx={{ width: 300, margin:'1rem 0 1rem 0'}}
@@ -163,18 +176,24 @@ export default function ProductModalFromButton(props:modalFromButtonProps) {
                         }}
                     />
                     )}
-                />
+                /> */}
                 <Box className="align flex ml-20 w-1/2">
                   <Checkbox onClick={handleCheckBoxClick} {...label} defaultChecked color="default" />
                   <TextField
                     label="Quantity"
                     variant="outlined"
                     value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)}
                     className='flex justify-center'
                     required
-                    type="number"
-                    inputProps={{ min: "0", style: { textAlign: "center" } }} 
+                    onChange={(event)=>{handleQuantityValidation(event)}}
+                    error={quanityError}
+                    helperText={
+                       quanityError?"Please enter valid number":""
+                    }
+                    inputProps={{
+                      pattern:"^([1-9][0-9]*)?$",
+                      style:{fontSize:25},
+                    }}
                     InputLabelProps={{ style: { fontSize: 20 } }}
                     disabled={!clicked}
                 />
