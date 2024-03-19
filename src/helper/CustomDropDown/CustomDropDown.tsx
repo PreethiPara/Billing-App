@@ -21,6 +21,7 @@ function CustomDropDown(props: customDropDown) {
             >
                 {
                     props.listOfDropDownEntries.map((value, itr) => {
+                        
                         return (< MenuItem value={value} children={< NameWithIcon icon={props.iconImageWithName.at(itr)} name={value} />} />)
                     })
                 }
