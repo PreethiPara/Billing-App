@@ -7,15 +7,9 @@ import CustomButton from '../../helper/CustomButton/CustomButton';
 import { theme } from '../../constants/Theme/theme';
 import { modalFromButtonProps } from '../../constants/helper/modalFromButtonProps';
 import { TextField } from '@mui/material';
-import Autocomplete from '@mui/material/Autocomplete';
-import WineBarIcon from '@mui/icons-material/WineBar';
 import Checkbox from '@mui/material/Checkbox';
-import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
-import IcecreamIcon from '@mui/icons-material/Icecream';
-import CakeIcon from '@mui/icons-material/Cake';
 import CustomDropDown from '../../helper/CustomDropDown/CustomDropDown';
 import { listOfIcon, listOfName } from '../../constants/helper/listOfIconsForCategoryDropDown';
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const style = {
   position: 'absolute' as 'absolute',
