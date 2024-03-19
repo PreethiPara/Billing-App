@@ -8,6 +8,8 @@ function CustomDropDown(props: customDropDown) {
 
     const handleChange = (event: SelectChangeEvent) => {
         setState(event.target.value);
+        if (event.target.value !== undefined)
+            props.handleChangeInDropDown(event.target.value);
     };
 
     return (<Box sx={{ minWidth: 120, width: "100%" }}>
@@ -21,7 +23,7 @@ function CustomDropDown(props: customDropDown) {
             >
                 {
                     props.listOfDropDownEntries.map((value, itr) => {
-                        
+
                         return (< MenuItem value={value} children={< NameWithIcon icon={props.iconImageWithName.at(itr)} name={value} />} />)
                     })
                 }

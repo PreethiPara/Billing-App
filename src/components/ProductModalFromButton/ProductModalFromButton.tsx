@@ -7,9 +7,6 @@ import CustomButton from '../../helper/CustomButton/CustomButton';
 import { theme } from '../../constants/Theme/theme';
 import { modalFromButtonProps } from '../../constants/helper/modalFromButtonProps';
 import { SelectChangeEvent, TextField } from '@mui/material';
-import Autocomplete from '@mui/material/Autocomplete';
-import WineBarIcon from '@mui/icons-material/WineBar';
-import { TextField } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import CustomDropDown from '../../helper/CustomDropDown/CustomDropDown';
 import { listOfIcon, listOfName } from '../../constants/helper/listOfIconsForCategoryDropDown';
@@ -64,12 +61,11 @@ export default function ProductModalFromButton(props: modalFromButtonProps) {
       }
       console.log(updatedFormData);
     }
-    console.log(formData);
     setName("");
     setPrice("");
     setCategory(null);
-    setQuantity("");
-
+    setQuantity("1");
+    handleClose()
   }
   function handlePriceValidation(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setPrice(event.target.value);
@@ -85,8 +81,8 @@ export default function ProductModalFromButton(props: modalFromButtonProps) {
     }
     else setQuantityError(true);
   }
-  const handleCategory = (event: SelectChangeEvent) => {
-    setCategory(event.target.value);
+  const handleCategory = (value: string) => {
+    setCategory(value);
   };
   return (
     <div>
@@ -112,13 +108,18 @@ export default function ProductModalFromButton(props: modalFromButtonProps) {
             {props.mainHeading}
           </Typography>
           <Box className='flex flex-col w-4/5'>
-            <TextField type='text' onChange={(e) => setName(e.target.value)} label='Name' variant='outlined' required placeholder={'Name'} sx={{ margin: '1rem 0 1rem 0' }} inputProps={{ style: { fontSize: 25 } }}
-              InputLabelProps={{ style: { fontSize: 20 } }} />
+            <TextField sx={{ margin: "1rem 0 1rem" }} onChange={(e) => setName(e.target.value)} label='Name' variant='outlined' required placeholder={'Name'} inputProps={{ style: { fontSize: 25 } }}
+              InputLabelProps={{ style: { fontSize: 20, alignContent: 'center' } }} />
             <Box className='flex justify-between items-center'>
-              <TextField label='Price' onChange={(event) => { handlePriceValidation(event) }} variant='outlined' required placeholder={'Price'} sx={{ margin: '1rem 2rem 1rem 0rem', width: "40%" }} inputProps={{
-                pattern: "^([1-9][0-9]*)?$",
-                style: { fontSize: 25 },
-              }}
+              <TextField className='w-2/5'
+                sx={{ margin: "1rem 0 1rem" }}
+                error={priceError}
+                label='Price' onChange={handlePriceValidation}
+                variant='outlined' required placeholder={'Price'}
+                inputProps={{
+                  pattern: "^([1-9][0-9]*)?$",
+                  style: { fontSize: 20 },
+                }}
                 helperText={
                   priceError ? "Please enter valid number" : ""
                 } />
@@ -132,14 +133,15 @@ export default function ProductModalFromButton(props: modalFromButtonProps) {
               </Box>
               <Box className="flex w-3/5 justify-end">
                 <Checkbox checked={clicked} onClick={handleCheckBoxClick} />
-                <TextField onChange={(event) => { handleQuantityValidation(event) }}
+                <TextField
+                  onChange={handleQuantityValidation}
                   error={quanityError}
                   helperText={
                     quanityError ? "Please enter valid number" : ""
                   }
                   inputProps={{
                     pattern: "^([1-9][0-9]*)?$",
-                    style: { fontSize: 25 },
+                    style: { fontSize: 18 },
                   }} required className="flex w-7/10" disabled={!clicked} label={"Quantity"} children={"Quantity"} />
               </Box>
             </Box>
