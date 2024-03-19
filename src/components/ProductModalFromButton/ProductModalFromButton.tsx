@@ -31,7 +31,7 @@ export default function ProductModalFromButton(props: modalFromButtonProps) {
   const [price, setPrice] = React.useState("");
   const [priceError, setPriceError] = React.useState(false);
   const [name, setName] = React.useState("");
-  const [category, setCategory] = React.useState<String | null>(null);
+  const [category, setCategory] = React.useState("");
   const [quantity, setQuantity] = React.useState("");
   const [quanityError, setQuantityError] = React.useState(false);
 
@@ -42,7 +42,7 @@ export default function ProductModalFromButton(props: modalFromButtonProps) {
   function handleCheckBoxClick() {
     setClicked((prev) => {
       console.log(!prev);
-      setQuantity("0");
+      setQuantity("1");
       setQuantityError(false);
       return !prev;
     });
@@ -52,18 +52,18 @@ export default function ProductModalFromButton(props: modalFromButtonProps) {
       alert("Please fill in all the fields!");
       return;
     }
-    const formData = { name, price, category };
-
-    if (open) {
-      const updatedFormData = {
-        ...formData,
-        quantity: quantity
-      }
-      console.log(updatedFormData);
+    let formData = { name, price, category, quantity};
+    console.log(formData);
+    const jsonObject=JSON.stringify(formData);
+    localStorage.setItem('product',jsonObject);
+    const product=localStorage.getItem('person');
+    if(product!==null){
+      const parsedProduct=JSON.parse(product);
+      console.log(parsedProduct);
     }
     setName("");
     setPrice("");
-    setCategory(null);
+    setCategory("");
     setQuantity("1");
     handleClose()
   }

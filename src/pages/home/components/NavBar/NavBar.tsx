@@ -38,7 +38,7 @@ export default function NavBar() {
               </div>
             </Box>
             <Box>
-              <Typography variant="h1" className="italic" fontWeight={'700'}>Zomato</Typography>
+              <Typography variant="h1" className="italic" fontWeight={'700'}>Hapree</Typography>
               <Typography variant="h3" className="italic" fontWeight={'700'}>Crush Your Restaurant Bills </Typography>
 
               <Box sx={{ display: "flex", justifyContent: "center" }}>

@@ -1,0 +1,13 @@
+.product-paper{
+    display: grid;
+    row-gap: 50px;
+    grid-template-columns: auto auto auto;
+    column-gap: 30px;
+}
+.name-price{
+    display: flex;
+    justify-content: space-around;
+}
+.paper{
+    padding: 20px;
+}

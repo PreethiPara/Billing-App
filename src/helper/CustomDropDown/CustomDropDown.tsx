@@ -9,6 +9,7 @@ function CustomDropDown(props: customDropDown) {
     const handleChange = (event: SelectChangeEvent) => {
         setState(event.target.value);
         if (event.target.value !== undefined)
+            console.log(event);
             props.handleChangeInDropDown(event.target.value);
     };
 
