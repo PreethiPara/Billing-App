@@ -7,7 +7,9 @@ function CustomDropDown(props: customDropDown) {
     const [state, setState] = React.useState('');
 
     const handleChange = (event: SelectChangeEvent) => {
+        console.log(event);
         setState(event.target.value);
+        props.handleChangeInDropDown(event);
     };
 
     return (<Box sx={{ minWidth: 120, width: "100%" }}>
@@ -18,6 +20,7 @@ function CustomDropDown(props: customDropDown) {
                 label={props.label}
                 onChange={handleChange}
                 placeholder={props.label}
+                
             >
                 {
                     props.listOfDropDownEntries.map((value, itr) => {
