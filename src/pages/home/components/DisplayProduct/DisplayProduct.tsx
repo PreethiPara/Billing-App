@@ -1,8 +1,8 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { autocompleteClasses, Container, Typography } from '@mui/material';
-import productData from '../../helper/productData';
+import {Typography } from '@mui/material';
+import productData from '../../constants/productData';
+import editDeleteIcons from '../../helper/editDeleteIcons';
 import "./DisplayProduct.scss";
 export default function DisplayProduct() {
   return (
@@ -13,7 +13,7 @@ export default function DisplayProduct() {
                     '& > :not(style)': {
                     m: 1,
                     borderRadius:3,
-                    height: 256,
+                    height: 300,
                     },
                 }}
                 className="product-paper"
@@ -22,16 +22,27 @@ export default function DisplayProduct() {
                     {
                         productData.map((item)=>(
                             
-                            <Paper className="paper" elevation={8}>
+                            <Paper className="paper" elevation={3}>
                                
                                <Typography style={{"marginBottom":"20px"}} variant="h4" fontWeight={'600'}>{item.name}</Typography>
                                
                                 <Typography style={{"marginBottom":"10px"}} variant="h6" className="italic" fontWeight={'400'}>{item.price} $</Typography>
                             
                                <Typography  style={{"marginBottom":"10px"}} variant='h5' className="italic">{item.category}</Typography>
-                               <Typography variant='h6'>{`Quantity: ${item.quantity}`}</Typography>
+                               <Typography style={{"marginBottom":"20px"}}  variant='h6'>{`Quantity: ${item.quantity}`}</Typography>
+                               
+                                <div className='flex justify-center'>
+                                    {
+                                        editDeleteIcons.map((icon,index)=>(
+                                            <div key={index}>
+                                                {icon}
+                                            </div>
+                                        ))
+                                    }
+                                </div>
                                
                             </Paper>
+
                         ))
                     }
                 

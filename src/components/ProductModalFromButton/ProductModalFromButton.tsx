@@ -6,10 +6,11 @@ import Modal from '@mui/material/Modal';
 import CustomButton from '../../helper/CustomButton/CustomButton';
 import { theme } from '../../constants/Theme/theme';
 import { modalFromButtonProps } from '../../constants/helper/modalFromButtonProps';
-import { SelectChangeEvent, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import CustomDropDown from '../../helper/CustomDropDown/CustomDropDown';
 import { listOfIcon, listOfName } from '../../constants/helper/listOfIconsForCategoryDropDown';
+import MultiSelectDropDown from '../MultiSelectDropDown/MultiSelectDropDown';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -26,14 +27,14 @@ const style = {
 };
 
 export default function ProductModalFromButton(props: modalFromButtonProps) {
-  const [open, setOpen] = React.useState(false);
-  const [clicked, setClicked] = React.useState(true);
-  const [price, setPrice] = React.useState("");
-  const [priceError, setPriceError] = React.useState(false);
-  const [name, setName] = React.useState("");
-  const [category, setCategory] = React.useState("");
-  const [quantity, setQuantity] = React.useState("");
-  const [quanityError, setQuantityError] = React.useState(false);
+  const [open, setOpen] = React.useState<boolean>(false);
+  const [clicked, setClicked] = React.useState<boolean>(true);
+  const [price, setPrice] = React.useState<string>("");
+  const [priceError, setPriceError] = React.useState<boolean>(false);
+  const [name, setName] = React.useState<string>("");
+  const [category, setCategory] = React.useState<string>("");
+  const [quantity, setQuantity] = React.useState<string>("");
+  const [quanityError, setQuantityError] = React.useState<boolean>(false);
 
 
   const handleOpen = () => setOpen(true);
@@ -123,8 +124,9 @@ export default function ProductModalFromButton(props: modalFromButtonProps) {
                 helperText={
                   priceError ? "Please enter valid number" : ""
                 } />
-              <Box className="flex w-2/5">
+              <Box className="w-3/5 ml-6">
                 {/* <CustomDropDown handleChangeInDropDown={} label='Branch' listOfDropDownEntries={["dummy1", "dummy2", "dummy3"]} iconImageWithName={[]} /> */}
+                  <MultiSelectDropDown/>
               </Box>
             </Box>
             <Box className="flex mt-4 mb-4 justify-between">
