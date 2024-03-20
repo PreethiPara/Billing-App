@@ -4,8 +4,15 @@ import {Typography } from '@mui/material';
 import productData from '../../constants/productData';
 import editDeleteIcons from '../../helper/editDeleteIcons';
 import "./DisplayProduct.scss";
-export default function DisplayProduct() {
+import { displayProductProps } from '../../helper/displayProductProps';
+export default function DisplayProduct(props:displayProductProps) {
+
+    const filteredData=productData.filter((product)=>{
+        return product.name.toLowerCase().includes(props.queryWord.toLowerCase())
+    })
+
   return (
+    
     <Box className="flex justify-center">
         <Box className=" w-10/12 p-10 mt-10 mb-10">
             <Box
@@ -20,14 +27,10 @@ export default function DisplayProduct() {
             >
                 
                     {
-                        productData.map((item)=>(
-                            
+                        filteredData.map((item)=>(
                             <Paper className="paper" elevation={3}>
-                               
                                <Typography style={{"marginBottom":"20px"}} variant="h4" fontWeight={'600'}>{item.name}</Typography>
-                               
                                 <Typography style={{"marginBottom":"10px"}} variant="h6" className="italic" fontWeight={'400'}>{item.price} $</Typography>
-                            
                                <Typography  style={{"marginBottom":"10px"}} variant='h5' className="italic">{item.category}</Typography>
                                <Typography style={{"marginBottom":"20px"}}  variant='h6'>{`Quantity: ${item.quantity}`}</Typography>
                                

@@ -21,6 +21,8 @@ function CustomDropDown(props: customDropDown) {
                 label={props.label}
                 onChange={handleChange}
                 placeholder={props.label}
+                style={{backgroundColor:"white"}}
+                
             >
                 {
                     props.listOfDropDownEntries.map((value, itr) => {

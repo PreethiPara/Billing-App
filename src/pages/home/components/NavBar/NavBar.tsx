@@ -13,13 +13,21 @@ import FormControl from '@mui/material/FormControl';
 import { SelectChangeEvent } from '@mui/material/Select';
 import CustomDropDown from "../../../../helper/CustomDropDown/CustomDropDown";
 import { listOfIcon, listOfName } from "../../../../constants/helper/listOfIconsForCategoryDropDown";
-export default function NavBar() {
+import { setQueryProps } from "../../helper/setQueryProps";
+import Search from "../../../../components/Search/Search";
+export default function NavBar(props:setQueryProps) {
   const [age, setAge] = React.useState('');
-
+  const [branch,setBranch]=React.useState<string>("");
+  function handleBranch(value:string){
+    setBranch(value);
+  }
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
   };
-
+  function handleSearch(value:string){
+    console.log(value+"In navbar");
+    props.handleSetQuery(value);
+  }
   return (
     <Box sx={{ flexGrow: 1 }} >
       <AppBar position="static">
@@ -38,12 +46,14 @@ export default function NavBar() {
               </div>
             </Box>
             <Box>
-              <Typography variant="h1" className="italic" fontWeight={'700'}>Hapree</Typography>
-              <Typography variant="h3" className="italic" fontWeight={'700'}>Crush Your Restaurant Bills </Typography>
-
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <Box>
-
+              <Typography style={{marginBottom:"20px"}} variant="h1" className="italic" fontWeight={'700'}>Hapree</Typography>
+              <Typography style={{marginBottom:"40px"}}variant="h3" className="italic" fontWeight={'700'}>Crush Your Restaurant Bills </Typography>
+              <Box sx={{display:"flex", "justifyContent":"center"}}>
+                <Box sx={{width:"20%"}}>
+                  <CustomDropDown  handleChangeInDropDown={handleBranch} label='Branch' listOfDropDownEntries={["dummy1", "dummy2", "dummy3"]} iconImageWithName={[]} />
+                </Box>
+                <Box sx={{width:"30%"}}>
+                  <Search handleSearch={props.handleSetQuery}/>
                 </Box>
               </Box>
             </Box>
