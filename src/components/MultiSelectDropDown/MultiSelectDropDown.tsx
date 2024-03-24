@@ -38,7 +38,6 @@ export default function MultiSelectDropDown(){
         }
         setSelectedValue(value);
     }
-
     return(
         <div>
             <FormControl sx={{width:"100%"}}>

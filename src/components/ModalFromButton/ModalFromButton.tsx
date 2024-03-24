@@ -59,6 +59,9 @@ export default function ModalFromButton(props: modalFromButtonProps) {
                 )
               })
             }
+            {
+              props.extraContent
+            }
             <Box className='flex justify-between w-fit mt-4 mb-2 min-w-48'>
               <CustomButton buttonText='Submit' handleClick={handleClose}></CustomButton>
               <CustomButton buttonText='Close' handleClick={handleClose}></CustomButton>

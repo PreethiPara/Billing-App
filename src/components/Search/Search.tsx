@@ -16,21 +16,27 @@ export default function Search(props:searchProps){
         props.handleSearch(searchWord);
     }
     return(
-        <Box className="w-full">
+        <Box className="w-full flex ">
             <TextField
                 id="search-bar"
                 className="text bg-white rounded"
-                label="Search for Product"
+                // label="Search for Product"
                 variant="outlined"
                 onChange={(event)=>handleSearchChange(event)}
                 placeholder="Search for Product"
                 fullWidth
-                inputProps={{ style: { fontSize: 25 } }}
-                InputLabelProps={{ style: { fontSize: 20, alignContent: 'center'} }}
-            />
-            <IconButton className="w-10" onClick={handleSearchClick} type="submit" aria-label="search">
-                <SearchIcon style={{fill:"blue"}} />
-            </IconButton>
+                InputProps={{
+                    endAdornment:(
+                        <IconButton className="w-10 text-xl" onClick={handleSearchClick} type="submit" aria-label="search">
+                             <SearchIcon style={{fill:"blue",fontSize:"35px", marginLeft:"20px"}} />
+                        </IconButton>
+                    )
+                }}
+                // inputProps={{ style: { fontSize: 25 } }}
+                // InputLabelProps={{ style: { fontSize: 25, alignContent: 'center'} }}
+            >
+                
+            </TextField>
             
         </Box>
     )
