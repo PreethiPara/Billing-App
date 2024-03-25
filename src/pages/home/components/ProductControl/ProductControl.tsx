@@ -5,11 +5,12 @@ import CategoryModal from "../../../../components/CategoryModal/CategoryModal";
 import CustomDropDown from "../../../../helper/CustomDropDown/CustomDropDown";
 import React from "react";
 import { listOfIcon, listOfName } from "../../../../constants/helper/listOfIconsForCategoryDropDown";
-export default function ProductControl() {
-    const [catgory,setCategory]=React.useState<string>("");
-
-    const handleCategory = (event: SelectChangeEvent) => {
-        setCategory(event.target.value);
+import { productControlProps } from "../../helper/productControlProps";
+export default function ProductControl(props:productControlProps) {
+    const [category,setCategory]=React.useState<string>("");
+    const handleCategory = (value:string) => {
+        setCategory(value);
+        props.handleSetCategory(value);
     };
     return (
         <Box className="m-10 flex w-vw">
@@ -22,9 +23,12 @@ export default function ProductControl() {
                     <CategoryModal/>
                 </Box>
             </Box>
-            <Box className="flex justify-around w-1/2 ">
+            <Box className="flex justify-end w-1/2 ">
                 <Box className="w-1/4 ">
-                    <CustomDropDown handleChangeInDropDown={handleCategory} label='Category' listOfDropDownEntries={listOfName} iconImageWithName={listOfIcon} />
+                    <CustomDropDown handleChangeInDropDown={handleCategory} label='Filter by Category' listOfDropDownEntries={listOfName} iconImageWithName={listOfIcon} />
+                </Box>
+                <Box className="w-1/4 ml-10">
+                    <CustomDropDown handleChangeInDropDown={handleCategory} label='Sort by' listOfDropDownEntries={["Recently added","Sort by Price","Sort A-Z"]} iconImageWithName={[]} />
                 </Box>
             </Box>
 

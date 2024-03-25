@@ -9,8 +9,10 @@ function CustomDropDown(props: customDropDown) {
     const [state, setState] = React.useState('');
     
     const handleChange = (event: SelectChangeEvent) => {
+        console.log(event.target.value);
         setState(event.target.value);
-        if (event.target.value !== undefined)
+        const selectedValue=event.target.value;
+        if (selectedValue !== undefined)
             console.log(event);
             props.handleChangeInDropDown(event.target.value);
     };
@@ -18,7 +20,6 @@ function CustomDropDown(props: customDropDown) {
     return (<Box sx={{ minWidth: 120, width: "100%" }}>
         <FormControl fullWidth>
             <InputLabel >
-                
                 {props.label}
             </InputLabel>
             <Select
@@ -41,6 +42,13 @@ function CustomDropDown(props: customDropDown) {
                     variant: "menu",
               }}
             >
+                {
+                    (props.label==="Filter by Category" || props.label==="Sort by")?(
+                        <MenuItem>None</MenuItem>
+                    ):(<div>
+
+                    </div>)
+                }
                 {
                     props.listOfDropDownEntries.map((value, itr) => {
 

@@ -6,10 +6,20 @@ import editDeleteIcons from '../../helper/editDeleteIcons';
 import "./DisplayProduct.scss";
 import { displayProductProps } from '../../helper/displayProductProps';
 export default function DisplayProduct(props:displayProductProps) {
-
-    const filteredData=productData.filter((product)=>{
-        return product.name.toLowerCase().includes(props.queryWord.toLowerCase())
+    // const filteredData=productData.filter((product)=>{
+    //     if(props.queryWord){
+    //     return product.name.toLowerCase().includes(props.queryWord.toLowerCase());
+    //     }
+        
+    // })
+    const filteredData = productData
+    .filter((product) => {
+        return !props.queryWord || product.name.toLowerCase().includes(props.queryWord.toLowerCase());
     })
+    .filter((product) => {
+        return !props.queryCategory || product.category.toLowerCase() === props.queryCategory.toLowerCase();
+    });
+
 
   return (
     
