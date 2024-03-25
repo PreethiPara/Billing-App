@@ -89,6 +89,7 @@ export default function ProductModalFromButton(props: modalFromButtonProps) {
     else setQuantityError(true);
   }
   const handleCategory = (event: SelectChangeEvent) => {
+    console.log(event);
     setCategory(event.target.value);
 };
   return (
@@ -131,7 +132,7 @@ export default function ProductModalFromButton(props: modalFromButtonProps) {
             </Box>
             <Box className="flex mt-4 mb-4 justify-between">
               <Box className="flex w-2/5">
-                <CustomDropDown handleChangeInDropDown={handleCategory} label='Category' listOfDropDownEntries={listOfName} iconImageWithName={listOfIcon} />
+                <CustomDropDown handleChangeInDropDown={(event: SelectChangeEvent)=>{handleCategory(event)}} label='Category' listOfDropDownEntries={listOfName} iconImageWithName={listOfIcon} />
               </Box>
               <Box className="flex w-3/5 justify-end">
                 <Checkbox checked={clicked} onClick={handleCheckBoxClick} />
