@@ -1,6 +1,6 @@
 const transactions = [
     {
-      "storeName": "Store A",
+      "storeName": "Hapree",
       "branchName": "Branch 1",
       "transactions": [
         {"transactionId": "1", "date": "2024-03-26", "amount": 25.47, "products": ["Ice Cream Cone", "Latte"]},
@@ -9,7 +9,7 @@ const transactions = [
       ]
     },
     {
-      "storeName": "Store A",
+      "storeName": "Hapree",
       "branchName": "Branch 2",
       "transactions": [
         {"transactionId": "3", "date": "2024-03-28", "amount": 18.75, "products": ["Chicken Noodles", "Chocolate Bar"]},
@@ -18,7 +18,7 @@ const transactions = [
       ]
     },
     {
-      "storeName": "Store A",
+      "storeName": "Hapree",
       "branchName": "Branch 3",
       "transactions": [
         {"transactionId": "5", "date": "2024-03-30", "amount": 15.99, "products": ["Ice Cream Cone", "Latte", "Chocolate Bar"]},

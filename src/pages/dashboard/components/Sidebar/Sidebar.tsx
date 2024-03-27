@@ -8,7 +8,7 @@ import storeDetails from "../../constants/storeDetails";
 export default function Sidebar() {
     const branches = storeDetails[0].listOfBranches;
     return (
-        <Box className="w-2/12 bg-white h-screen sidebar">
+        <Box className=" bg-white h-screen sidebar">
             <Typography className="italic" fontWeight={'700'} style={{margin:"45px"}} variant="h3">Hapree</Typography>
             <NavLink to="/" className="nav-link">
                 <MenuItem className="side-bar-menu-item" style={{fontSize:"1.6rem"}}>

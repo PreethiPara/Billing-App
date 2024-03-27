@@ -1,0 +1,30 @@
+
+.sidebar-wrapper{
+    grid-area: sidebar;
+}
+.overview-wrapper{
+    grid-area: overview;
+}
+.sales-graph-wrapper{
+    grid-area:sales
+}
+.pie-chart-revenue-wrapper{
+    grid-area: pie-chart;
+}
+.top-selling-products-wrapper{
+    grid-area: top-products;
+}
+.recent-transactions-wrapper{
+    grid-area: transactions;
+}
+.main-dashboard{
+    
+    display: grid;
+    grid-template-areas:
+    'sidebar overview overview overview overview'
+    'sidebar sales sales pie-chart pie-chart'
+    'sidebar top-products top-products transactions transactions';
+  gap: 10px;
+  
+  padding: 10px;
+}

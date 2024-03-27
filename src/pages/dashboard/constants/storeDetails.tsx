@@ -1,6 +1,6 @@
 const storeDetails = [
     {
-      "storeName": "Store A",
+      "storeName": "Hapree",
       "rootUser": "admin1",
       "rootPassword": "admin1",
       "listOfAccounts": [
@@ -21,7 +21,8 @@ const storeDetails = [
         {"productName": "Margherita Pizza", "category": "Pizza", "price": 9.99},
         {"productName": "Shawarma Wrap", "category": "Shawarma", "price": 7.99},
         {"productName": "Chicken Noodles", "category": "Noodles", "price": 6.99},
-        {"productName": "Chocolate Bar", "category": "Chocolate", "price": 2.49}
+        {"productName": "Chocolate Bar", "category": "Chocolate", "price": 2.49},
+        {"productName": "Chicken Bar", "category": "Chicken", "price": 2.49},
         // Add more products here
       ]
     },
