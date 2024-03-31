@@ -47,13 +47,13 @@ export default function OverView() {
   },[]);
   return (
     <div className="overview">
-      <Paper elevation={3} className="bg-pink-100 p-3 ml-10 mt-10 main-overview">
+      <Paper elevation={3} className="bg-pink-100 p-3 ml-10 mt-10 mr-10 main-overview">
         <Typography fontWeight={"500"} variant="h4">Overview</Typography>
         <div className="overview-dropdown">
             <CustomDropDown handleChangeInDropDown={(event: string)=>{handleOverview(event)}} label='Weekly' listOfDropDownEntries={["Weekly","Monthly","Yearly"]} iconImageWithName={[]} />
         </div>
       </Paper>
-      <Box className="flex ml-10 mt-10 overview-list">
+      <Box className="flex ml-10 mt-10 mr-10 overview-list">
         <Paper elevation={3} className="p-7 overview-info">
           <MenuItem sx={{ '&:hover': { backgroundColor: 'rgb(169, 169, 215)' } }}>
               {overViewIconInfo[0]}
