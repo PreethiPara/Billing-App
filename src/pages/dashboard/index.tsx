@@ -15,7 +15,7 @@ function Dashboard(){
                 <OverView/>
                 <div className="flex">
                     <SalesGraph/>
-                    <PieChart/>
+                    <PieChartRevenue/>
                 </div>
                 <div className="flex">
                     <TopSellingProducts/>
