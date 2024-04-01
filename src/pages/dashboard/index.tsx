@@ -3,10 +3,10 @@ import OverView from "./components/Overview/Overview";
 import SalesGraph from "./components/SalesGraph/SalesGraph";
 import Sidebar from "./components/Sidebar/Sidebar";
 import './index.scss';
-import { PieChart } from "@mui/icons-material";
-import PieChartRevenue from "./components/PieChartRevenue/PieChartRevenue";
+import PieChartRevenue from "./components/PieChartRevenue/PieChartRevenue.d";
 import TopSellingProducts from "./components/TopSellingProducts/TopSellingProducts";
 import RecentTransactions from "./components/RecentTransactions/RecentTransactions";
+
 function Dashboard(){
     return(
         <div className="flex overall">
