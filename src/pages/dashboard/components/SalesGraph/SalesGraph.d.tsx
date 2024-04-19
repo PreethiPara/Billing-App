@@ -11,8 +11,8 @@ interface SalesGraphState {
   isLoaded: boolean;
 }
 
-class SalesGraph extends Component<{}, SalesGraphState> {
-  constructor(props: {}) {
+class SalesGraph extends React.Component<{},SalesGraphState>{
+  constructor(props:{}) {
     super(props);
     this.state = { dataPoints: [], isLoaded: false };
   }
