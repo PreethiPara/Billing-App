@@ -1,7 +1,7 @@
 version: 0.0
 os: windows
 files:
-  - source: frontend\src\index.tsx
+  - source: src/index.tsx
     destination: /var/www/html/
 hooks:
   BeforeInstall:
